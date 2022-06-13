@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Card as CardWrapper,
+  CardImageWrapper,
   CardImage,
   CardContent,
   CardFavouriteButton,
@@ -13,34 +14,44 @@ import {
 import { FaBookmark, FaMapMarkerAlt, FaCalendarAlt, FaUserAlt } from 'react-icons/fa'
 import Link from 'next/link'
 
-interface CardProps {}
+interface CardProps {
+  overlay: string
+  image: string
+  title: string
+  price: string
+  date: string
+  location: string
+  host: { user: string; url: string }
+}
 
-const Card = ({}: CardProps) => (
+const Card = ({ overlay, image, title, price, date, location, host }: CardProps) => (
   <Link href='/'>
     <CardWrapper>
-      <CardImage src='./card1.png' />
+      <CardImageWrapper>
+        <CardImage overlay={overlay} src={image} />
+      </CardImageWrapper>
       <CardContent>
         <CardFavouriteButton>
           <FaBookmark />
         </CardFavouriteButton>
         <CardHeader>
-          <CardTitle>Example title of an event which will be held soon</CardTitle>
-          <CardPrice>Starts at $5</CardPrice>
+          <CardTitle>{title}</CardTitle>
+          <CardPrice>{price}</CardPrice>
         </CardHeader>
         <CardData highlight>
           <FaCalendarAlt className='icon' />
-          <span>Sat, Jun 18 2022</span>
+          <span>{date}</span>
         </CardData>
         <CardData>
           <FaMapMarkerAlt className='icon' />
-          <span>Grand Hotel Millennium Sofia, 89B bulevard "Vitosha", 1463 Sofia</span>
+          <span>{location}</span>
         </CardData>
         <CardData>
           <FaUserAlt className='icon' />
           <span>
             by{' '}
-            <Link href='/'>
-              <CardOwner>Company</CardOwner>
+            <Link href={host.url}>
+              <CardOwner>{host.user}</CardOwner>
             </Link>
           </span>
         </CardData>

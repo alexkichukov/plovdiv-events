@@ -13,7 +13,44 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Card />
+        <div className={styles.cardgrid}>
+          <Card
+            overlay='#7b42ff4e'
+            image='./card1.png'
+            title='Example title of an event which will be held'
+            price='Starts at $5'
+            date='Sat, Jun 18 2022'
+            location='Grand Hotel Millennium Sofia, 89B bulevard "Vitosha", 1463 Sofia'
+            host={{ user: 'Company', url: '/somewhere' }}
+          />
+          <Card
+            overlay='#42d3ff4e'
+            image='./card1.png'
+            title='Example title of another event'
+            price='Free'
+            date='Mon, Jun 20 2022'
+            location='Grand Hotel Millennium Sofia'
+            host={{ user: 'Another Company', url: '/somewhere' }}
+          />
+          <Card
+            overlay='#eb791c4e'
+            image='./card1.png'
+            title='Cool event'
+            price='Starts at $15'
+            date='Sat, Jun 18 2022'
+            location='Some other place'
+            host={{ user: 'Company', url: '/somewhere' }}
+          />
+          <Card
+            overlay='#80ff184e'
+            image='./card1.png'
+            title='Example title of an event which will be held'
+            price='Starts at $5'
+            date='Sat, Jun 18 2022'
+            location='Grand Hotel Millennium Sofia, 89B bulevard "Vitosha", 1463 Sofia'
+            host={{ user: 'Company', url: '/somewhere' }}
+          />
+        </div>
       </main>
     </div>
   )

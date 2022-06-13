@@ -63,7 +63,11 @@ export const CardFavouriteButton = styled.button`
   transition: 150ms ease-out;
 
   &:hover {
-    background: #414141;
+    background: #4d4d4d;
+  }
+
+  &:active {
+    transform: scale(0.92);
   }
 `
 
@@ -74,24 +78,37 @@ export const CardContent = styled.div`
 
 interface CardImageProps {
   src: string
+  overlay: string
 }
 
 export const CardImage = styled.div<CardImageProps>`
-  background: url(${(props) => props.src});
+  background: linear-gradient(0deg, ${p => p.overlay}, ${p => p.overlay}),
+   url(${(props) => props.src});
   background-size: cover;
+  height: 100%;
+  width: 100%;
+  transition: 250ms ease-out;
+`
+
+export const CardImageWrapper = styled.div`
   height: 100px;
   border-radius: 12px 12px 0 0;
+  overflow: hidden;
 `
 
 export const Card = styled.div`
   cursor: pointer;
   background: #272727;
   max-width: 320px;
+  width: 100%;
   border-radius: 12px;
   transition: 150ms ease-out;
+  border: 1px solid #272727;
 
   &:hover {
-    box-shadow: 0 0.5rem 0 0 #0000002d;
-    transform: translateY(-2px);
+    border: 1px solid #424242;
+    ${CardImage} {
+      transform: scale(1.1);
+    }
   }
 `
