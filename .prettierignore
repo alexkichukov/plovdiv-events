@@ -1,0 +1,14 @@
+# Exclude
+*.*
+node_modules/
+dist/
+public/_redirects
+
+# Allow only these extensions
+!*.css
+!*.scss
+!*.ts
+!*.tsx
+!*.js
+!*.json
+!*.md
